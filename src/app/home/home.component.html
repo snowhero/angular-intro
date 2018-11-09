@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 class="text-center">Hello my name is {{ name }}. And today is {{ renderThisDay() }}.</h1>
+  <input [(ngModel)]="name" type="text">
+  <ul>
+    <ng-container *ngFor="let language of languages">
+      <li *ngIf="ignoreLanguages(language)">The languages {{ renderSpokenLanguages(language.name) }} are spoken in {{ language.country }}</li>
+    </ng-container>
+  </ul>
+</div>
