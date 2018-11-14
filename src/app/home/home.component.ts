@@ -23,15 +23,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     {
       name: ['English', 'Spanish'],
       country: 'America'
-    }
+    },
     {
       name: ['Spanish', 'Arabic'],
       country: 'Spain'
-    }
+    },
     {
       name: ['French', 'Basque'],
       country: 'France'
-    }
+    },
     {
       name: ['German', 'English'],
       country: 'Germany'
