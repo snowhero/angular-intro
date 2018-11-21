@@ -3,7 +3,7 @@
   <input [(ngModel)]="name" type="text">
   <ul>
     <ng-container *ngFor="let language of languages">
-      <li *ngIf="ignoreLanguages(language)">The languages {{ renderSpokenLanguages(language.name) }} are spoken in {{ language.country }}</li>
+      <li *ngIf="ignoreLanguage(language)">The language {{ renderSpokenLanguages(language.names) }} is spoken in {{ language.country }}</li>
     </ng-container>
   </ul>
 </div>

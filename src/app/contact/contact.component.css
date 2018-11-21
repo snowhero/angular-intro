@@ -1,0 +1,8 @@
+.tag {
+    margin-right: 4px;
+}
+
+.tag:hover {
+    background-color: lightskyblue;
+}
+

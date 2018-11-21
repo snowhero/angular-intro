@@ -6,10 +6,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, OnDestroy {
+
   title: String = 'angular-intro-p1';
   name: String = 'Hiroyuki';
-  currentDay: any = new Date().getDay(); // 'any' instead of 'number' because the object 'days' only reads
-                                         // days[0] etc. with strings not numbers BUT this is bad practice
+  currentDay: any = new Date().getDay();
   days: Object = {
     0: 'Sunday',
     1: 'Monday',
@@ -21,19 +21,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   };
   languages: Object[] = [
     {
-      name: ['English', 'Spanish'],
+      names: ['English', 'Spanish'],
       country: 'America'
     },
     {
-      name: ['Spanish', 'Arabic'],
+      names: ['Spanish', 'Arabic'],
       country: 'Spain'
     },
     {
-      name: ['French', 'Basque'],
+      names: ['French', 'Basque'],
       country: 'France'
     },
     {
-      name: ['German', 'English'],
+      names: ['German', 'English'],
       country: 'Germany'
     }
   ];
@@ -52,12 +52,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     return languages.join(', ');
   }
 
-  ignoreLanguages(languages): Boolean {
+  ignoreLanguage(language): Boolean {
     const languageToIgnore = 'English';
-    return !languages.name.includes(languageToIgnore);//includes() method allows matching search to return true or false
+    return !language.names.includes(languageToIgnore);
   }
+
   ngOnDestroy() {
-    console.log('Good Bye');
+    console.log('Goodbye');
   }
 
 }
