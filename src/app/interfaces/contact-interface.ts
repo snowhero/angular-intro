@@ -1,8 +1,9 @@
 export class ContactInterface {
     id: number;
-    name: string;
+    firstName: string;
+    lastName: string;
     email: string;
     phone: string;
     tags: string[];
-    isDeleted = false;
+    isDeleted?: boolean;
 }
