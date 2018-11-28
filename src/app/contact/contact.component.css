@@ -1,8 +1,7 @@
 .tag {
-    margin-right: 4px;
+  margin-right: 4px;
 }
 
 .tag:hover {
-    background-color: lightskyblue;
+  background-color: lightskyblue;
 }
-
