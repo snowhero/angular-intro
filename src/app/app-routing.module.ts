@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'todo', component: TodoComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'heroes', component: HeroesComponent },
-  { path: 'hero/:id', component: HeroDetailComponent }  // /:id -> custom url to have unqiue id's 
+  { path: 'hero/:id', component: HeroDetailComponent },  // /:id -> custom url to have unqiue id's 
+  { path: 'heroes/:power', component: HeroesComponent }
 ];
 
 @NgModule({
