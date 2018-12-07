@@ -28,11 +28,14 @@ export class HeroService {
   }
 
   getIndividualHero(params: object): HeroInterface {
-    return HEROES.find( hero => hero.id === +params['id'] );  // Like saying params.id but don't know why must do
+    const id: number = +params['id'];
+    const selectedHero: HeroInterface = HEROES.find( hero => hero.id === id );
+    if(!selectedHero) { this.heroNotFound(id); }
+    return selectedHero;
   }
 
-  heroNotFound(noHero: string) {
-    return this.router.navigateByUrl(`/hero-not-found/${noHero}`); // using backslash apostrophe
+  heroNotFound(noHero: string | number) {
+    return this.router.navigateByUrl(`/hero-not-found/${noHero}`); // use backslash apostrophe for URL content
   }
 
 }

@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HeroNotFoundComponent } from './hero-not-found/hero-not-found.component';
+import { AmiibosComponent } from './amiibos/amiibos.component';
+import { AmiiboDetailComponent } from './amiibo-detail/amiibo-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, // '' -> default component
@@ -17,6 +19,9 @@ const routes: Routes = [
   { path: 'hero/:id', component: HeroDetailComponent },  // /:id -> custom url to have unqiue id's 
   { path: 'heroes/:power', component: HeroesComponent },
   { path: 'hero-not-found/:no-hero', component: HeroNotFoundComponent },
+  { path: 'amiibos', component: AmiibosComponent },
+  { path: 'amiibo/:id', component: AmiiboDetailComponent },
+  { path: 'amiibos/:category/:value', component: AmiibosComponent },
   { path: '**', component: NotFoundComponent }  // ** -> means wildcard "anything else", the last resort
 ];
 
