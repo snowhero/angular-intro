@@ -11,7 +11,7 @@ export class AmiiboService {
 
   constructor(private api: ApiService) { }  // Http request subscribe on the service
 
-  getAmiibos() {   // Double typing to be safe for best practice
-    return this.api.get<AmiiboInterface[]>('/amiibo');
+  getAmiibos() {
+    return this.api.get('/amiibo');
   } // res -> results
 }
