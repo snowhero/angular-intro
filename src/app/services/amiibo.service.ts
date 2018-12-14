@@ -14,4 +14,13 @@ export class AmiiboService {
   getAmiibos() {
     return this.api.get('/amiibo');
   } // res -> results
+
+  getAmiibo(id: string) {
+    return this.api.get(`/amiibo/?tail=${id}`)
+  }
+
+  getFilteredAmiibos(category: string, value: string) {
+    return this.api.get(`/amiibo/?${category}=${value}`);
+  }
+
 }

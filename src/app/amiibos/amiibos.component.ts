@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { AmiiboService } from '../services/amiibo.service';
 import { AmiiboInterface } from '../interfaces/amiibo-interface';
@@ -14,15 +15,26 @@ export class AmiibosComponent implements OnInit {
   amiibos: AmiiboInterface[];
   paginator: any = {};
   pagedItems: AmiiboInterface[] = [];
-  searchText; string;
+  searchText: string;
+  shouldShowPaginator = true;
 
-  constructor(private amiibo: AmiiboService, private paginationService: PaginationService) { }
+  constructor(private amiiboService: AmiiboService, private paginationService: PaginationService, private route: ActivatedRoute) { }
 
-  getAmiibos() { 
-    return this.amiibo.getAmiibos().subscribe((res) => {
-      this.amiibos = res.amiibo;
-      this.setPage(1);
-    });
+  getAmiibos() {
+    this.route.params.subscribe( params => {
+      if(params.category) {
+        this.amiiboService.getFilteredAmiibos(params.category, params.value).subscribe( (amiibos) => {
+        this.amiibos = amiibos.amiibo;
+        this.setPage(1);
+        });
+      } 
+      else {
+        this.amiiboService.getAmiibos().subscribe((res) => {
+        this.amiibos = res.amiibo;
+        this.setPage(1);
+        });
+      }
+    }); 
   }
 
   setPage(page: number) {
@@ -34,6 +46,14 @@ export class AmiibosComponent implements OnInit {
     this.pagedItems = this.amiibos.slice(this.paginator.startIndex, endIndex);
     }
   
+  setAmiibos(): AmiiboInterface[] {
+    if(!this.searchText) {
+      this.shouldShowPaginator = true;
+      return this.pagedItems;
+    }
+    this.shouldShowPaginator = false;
+    return this.amiibos;
+  }
 
   ngOnInit() {
     this.getAmiibos();

@@ -3,7 +3,7 @@ export interface AmiiboInterface {
     character: string;
     gameSeries: string;
     head: string;
-    img: string;
+    image: string;
     name: string;
     release: {
         au: string;
